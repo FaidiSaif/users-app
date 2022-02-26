@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline } from "@mui/material";
+import { Provider } from "react-redux";
+
+import { User } from "./components/User";
+
+import { store } from "./redux/store";
+import Container from "@mui/material/Container";
+
+const bgFooter = process.env.PUBLIC_URL + "/assets/images/footer.jpg";
+const bgContainer = process.env.PUBLIC_URL + "/assets/images/container.jpg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <CssBaseline />
+      <Container
+        maxWidth="xl"
+        sx={{
+          marginTop: "3%",
+          backgroundImage: `url(${bgContainer})`,
+          
+          paddingBottom: "2%",
+        }}
+      >
+        <User />
+      </Container>
+      <Container
+        maxWidth={false}
+        sx={{
+          marginTop: "0.3%",
+          backgroundImage: `url(${bgFooter})`,
+          backgroundSize: "100%",
+          backgroundRepeat: "no-repeat",
+          paddingBottom: "2%",
+          height: "400px",
+        }}
+      />
+    </Provider>
   );
 }
 
