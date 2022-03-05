@@ -52,9 +52,7 @@ export const _User = ({users , loadUsers} : UserProps) => {
     { title : user.name, subheader : user.email as string , photo : getImage(index)}
   ))
   return (
-    <>
       <GridContainer users={_users} />
-    </>
   )
 }
 
